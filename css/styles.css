@@ -1,3 +1,6 @@
+:root {
+  --scale-nav: -100%;
+}
 * {
   box-sizing: border-box;
 }
@@ -30,7 +33,15 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
+  position: fixed;
+}
+@media screen and (width > 768px) {
+  .navBar {
+    justify-content: space-between;
+    gap: 60px;
+    height: 96px;
+    padding: 0 40px;
+  }
 }
 
 .burger-menu {
@@ -38,10 +49,81 @@ body {
   top: 24px;
   left: 32px;
 }
+@media screen and (width > 768px) {
+  .burger-menu {
+    display: none;
+  }
+}
+
+.menu-items {
+  display: none;
+}
+@media screen and (width > 768px) {
+  .menu-items {
+    display: flex;
+  }
+}
+
+.nav-menu {
+  position: absolute;
+  width: 80%;
+  height: calc(100vh - 64px);
+  top: 64px;
+  left: 0;
+  background-color: #333a44;
+  translate: var(--scale-nav);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 64px 32px 24px 32px;
+  color: white;
+  transition: all 0.3s ease-in-out;
+  z-index: 2;
+}
+@media screen and (width > 768px) {
+  .nav-menu {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    color: black;
+    translate: 0;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    transition: all 0;
+    width: 100%;
+  }
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  color: white;
+}
+@media screen and (width > 768px) {
+  .nav-list {
+    flex-direction: row;
+    gap: 32px;
+    color: black;
+  }
+}
+
+.nav-button {
+  background-color: #fcb72a;
+  border: none;
+  padding: 14px 39px;
+}
+.nav-button > span {
+  color: white;
+}
 
 .container-home {
   width: 100%;
-  height: calc(100vh - 64px);
+  height: 100vh;
   background-image: url("/assets/images/home-hero-mobile.jpg");
   background-repeat: no-repeat;
   background-position-x: center;
